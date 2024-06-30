@@ -20,6 +20,13 @@ df = load_data('./data/cn1.csv')
 df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 df = df[df['HS_CODE'].replace('', np.nan).notna()]
 
+# Input from user
+st.sidebar.title('Similar Importir')
+no_ident = st.sidebar.text_input('NO_IDENTITAS')
+nm_penerima = st.sidebar.text_input('NAMA')
+al_penerima = st.sidebar.text_input('ALAMAT PENERIMA')
+uraian_barang = st.sidebar.text_input('URAIAN BARANG')
+
 # Function
 ## Mencari Kemiripan Importir
 model_ident, vectorizer_ident, model_name, vectorizer_name, model_address, vectorizer_address, model_uraian, vectorizer_uraian = create_index(df)
@@ -35,13 +42,6 @@ df_hs_results = get_similarity(similar_id, sentence_model, df_hs)
 range_harga = get_range(uraian_barang, df, model_uraian, vectorizer_uraian, sentence_model)
 min_harga = range_harga[0]
 max_harga = range_harga[1]
-
-# Input from user
-st.sidebar.title('Similar Importir')
-no_ident = st.sidebar.text_input('NO_IDENTITAS')
-nm_penerima = st.sidebar.text_input('NAMA')
-al_penerima = st.sidebar.text_input('ALAMAT PENERIMA')
-uraian_barang = st.sidebar.text_input('URAIAN BARANG')
 
 #Predict button
 if st.sidebar.button('Predict'):
