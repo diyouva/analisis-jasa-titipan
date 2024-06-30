@@ -1,5 +1,12 @@
+# import function create index from file 1_similar.py
 import streamlit as st
-import app2
+from create_index import create_index, load_data, find_similar
+from hscode_similarity import get_similarity
+from sentence_transformers import SentenceTransformer
+import pandas as pd
+from hs_risk import get_risk
+from price_range import get_range
+import numpy as np
 
 def main ():
     # Title of the app
