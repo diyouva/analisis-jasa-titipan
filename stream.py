@@ -19,7 +19,7 @@ st.write('Creating a Better CN Through Data')
 
 # Input from user
 st.sidebar.title('Similar Importir')
-no_ident = st.sidebar.number_input('NO_IDENTITAS', step=1, min_value=0, value=0)
+no_ident = st.sidebar.text_input('NO_IDENTITAS')
 nm_penerima = st.sidebar.text_input('NAMA')
 al_penerima = st.sidebar.text_input('ALAMAT PENERIMA')
 uraian_barang = st.sidebar.text_input('URAIAN BARANG')
