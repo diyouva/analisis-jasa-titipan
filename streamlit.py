@@ -53,7 +53,7 @@ uraian_barang = st.sidebar.text_input('URAIAN BARANG')
 #Predict button
 if st.sidebar.button('Predict'):
     # Pencarian Importir
-    load_data(filepath_cn)
+    load_data()
     search_importir()
     st.title('Displaying a Table in Streamlit')
     st.write('Here is a sample table:')
