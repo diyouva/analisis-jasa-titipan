@@ -17,11 +17,9 @@ st.write('Creating a Better CN Through Data')
 
 # Load data
 @st.cache_data
-def load_main_data():
-    df = pd.read_csv("data/cn1.csv")
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-    df = df[df['HS_CODE'].replace('', np.nan).notna()]
-    return df
+df = load_data('./data/cn1.csv')
+df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+df = df[df['HS_CODE'].replace('', np.nan).notna()]
 
 # Function
 ## Mencari Kemiripan Importir
@@ -32,7 +30,7 @@ def search_importir(df, no_ident, nm_penerima, al_penerima):
     return similar_id, similarity_penerima, model_uraian, vectorizer_uraian   
 ## Mencari kesesuaian HS Code dengan Nama Produk
 filepath_produk = './data/hs_code_not_clean_id.csv'
-def load_data(filepath_produk, similar_id, sentence_model):
+def load(filepath_produk, similar_id, sentence_model):
     df_hs = load_secondary_data(filepath_produk, dtype=str)
     df_hs_results = get_similarity(similar_id, sentence_model, df_hs)
     return df_hs_results
