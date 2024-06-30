@@ -49,9 +49,6 @@ uraian_barang = st.sidebar.text_input('URAIAN BARANG')
 
 #Predict button
 if st.sidebar.button('Predict'):
-    # Load main data
-    df = load_main_data()
-
     # Search for similar importers
     similar_id, similarity_penerima, model_uraian, vectorizer_uraian = search_importir(df, no_ident, nm_penerima, al_penerima)
 
