@@ -16,7 +16,6 @@ st.title('ANALISA JASA TITIPAN')
 st.write('Creating a Better CN Through Data')
 
 # Load data
-@st.cache_data
 df = load_data('./data/cn1.csv')
 df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 df = df[df['HS_CODE'].replace('', np.nan).notna()]
