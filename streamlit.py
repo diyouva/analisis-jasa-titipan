@@ -19,7 +19,7 @@ st.write('Creating a Better CN Through Data')
 @st.cache_data
 filepath_cn = 'data/cn1.csv'
 def load_data(filepath_cn):
-    df = load_data(filepath_cn)
+    df = pd.read_csv(filepath_cn)
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     df = df[df['HS_CODE'].replace('', np.nan).notna()]
     return df
