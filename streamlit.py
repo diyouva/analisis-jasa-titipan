@@ -38,7 +38,7 @@ max_harga = range_harga[1]
 
 # Input from user
 st.sidebar.title('Similar Importir')
-no_ident = st.sidebar.number_input ('NO_IDENTITAS')
+no_ident = st.sidebar.text_input('NO_IDENTITAS')
 nm_penerima = st.sidebar.text_input('NAMA')
 al_penerima = st.sidebar.text_input('ALAMAT PENERIMA')
 uraian_barang = st.sidebar.text_input('URAIAN BARANG')
